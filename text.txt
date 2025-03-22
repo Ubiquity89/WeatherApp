@@ -1,0 +1,43 @@
+LINE 13:
+Fetch Request: Initiates a fetch request to the currentWeatherUrl.
+
+fetch() is a built-in JavaScript function that initiates a request to the server and returns a Promise that resolves to the Response object representing the response to the request.
+
+currentWeatherUrl is the URL to which the request is sent. It includes the API endpoint (https://api.openweathermap.org/data/2.5/weather) and query parameters (q=${city}&appid=${apiKey}) constructed earlier
+
+First .then(): Handles the response after the fetch operation completes successfully.
+
+response represents the Response object returned by the server.
+
+response.json() is a method that reads the Response stream to completion and parses the JSON from the response body asynchronously. It returns a Promise that resolves to a JavaScript object.
+
+The arrow function (response) => response.json() is passed as a parameter to the .then() method, indicating what to do with the Response object once it's available.
+
+Second .then(): Handles the parsed JSON data received from the previous step.
+
+data represents the JavaScript object parsed from the JSON response.
+
+displayWeather(data) is a function that takes the parsed data and processes it to display weather information on the webpage. It's called here to update the UI with the weather details.
+
+.catch(): Handles errors that may occur during the fetch operation or JSON parsing.
+
+error represents the error object caught during the execution of the fetch request or processing of the JSON data.
+
+console.error("Error fetching current weather data:", error); logs a detailed error message to the browser console, indicating there was an issue with fetching or processing the weather data.
+
+alert("Error fetching current weather data. Please try again."); displays an alert message to the user, notifying them of the error and suggesting they try again.
+
+LINE 47:
+Condition Check (if (data.cod === "404")):
+
+This line checks if the cod property of the data object equals "404".
+data.cod is typically a code returned by the API indicating the status of the request. A "404" status code indicates that the requested resource (in this case, weather data for the specified city) was not found.
+Updating weatherInfoDiv:
+
+weatherInfoDiv.innerHTML = <p>${data.message}</p>;
+If the condition (data.cod === "404") is true, this line updates the innerHTML of the weatherInfoDiv element.
+It sets the HTML content inside weatherInfoDiv to a paragraph (<p>) element containing the message property from the data object.
+data.message typically contains a description or error message provided by the API when the requested resource is not found (404 error).
+
+LINE 51:
+This code iterates over each hourly forecast item (item) in the next24Hours array, extracts relevant information (hour, temperature, icon), constructs HTML for each forecast item, and then appends it to the hourlyForecastDiv on the webpage. Each line plays a role in extracting data, formatting it into HTML, and updating the UI with hourly weather forecasts.

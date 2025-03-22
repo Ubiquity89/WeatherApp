@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="./style.css" />
+    <!-- Link to Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Lobster&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="weather-container">
+      <h2>Weather App</h2>
+      <input type="text" id="city-input" placeholder="Enter city" />
+      <div id="buttons">
+        <button onclick="getWeather()">Search</button>
+        <button id="voice-search" onclick="startVoiceSearch()">
+          <img src="images/image.png" alt="Voice Search" />
+        </button>
+        <button id="location-button" onclick="getUserLocation()">
+          <img src="images/image copy.png" alt="Location" />
+        </button>
+      </div>
+
+      <img
+        id="initial-image"
+        src="https://cdn.pixabay.com/photo/2013/04/01/09/22/warm-98534_1280.png"
+      />
+      <img id="weather-icon" alt="Weather Icon" />
+
+      <div id="temp-div"></div>
+      <div id="weather-recommendation"></div>
+      <!-- Add this for recommendations -->
+
+      <div id="weather-info"></div>
+      <!-- <div id="weather-info"></div> -->
+
+      <div id="hourly-forecast"></div>
+    </div>
+
+    <!-- Chatbot Toggle Button -->
+    <!-- Chatbot Toggle Button -->
+    <div id="chatbot-toggle" onclick="toggleChatbot()">💬</div>
+
+    <!-- Chatbot Container -->
+    <div id="chatbot-container">
+      <div id="chatbot-header">
+        Chatbot <span id="close-chatbot" onclick="toggleChatbot()">✖</span>
+      </div>
+      <div id="chatbox"></div>
+      <div id="chatbot-input">
+        <input type="text" id="chat-input" placeholder="Type a message..." />
+        <button id="send-button">Send</button>
+      </div>
+    </div>
+
+    <!-- Welcome message container -->
+    <div id="welcomeMessage" class="welcome-message"></div>
+
+    <!-- Popup Modal for User Name -->
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <!-- Waving Hand Animation -->
+        <div class="waving-hand">👋</div>
+        <input type="text" id="userNameInput" placeholder="Your Name" />
+        <button onclick="submitName()">Submit</button>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
